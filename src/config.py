@@ -1,6 +1,6 @@
-
+import os
 
 DEBUG = True
 ADMINS = frozenset([
-    "chenyiran2016@gmail.com"
+    os.environ.get('ADMINS')
 ])
