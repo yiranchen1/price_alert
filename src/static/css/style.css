@@ -1,0 +1,11 @@
+.formgroup{
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: #D7DBDD;
+    padding: 20px;
+
+    border:1px solid #E1E1E1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}

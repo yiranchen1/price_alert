@@ -1,0 +1,22 @@
+{% extends "base.jinja2" %}
+{% block content %}
+    <div class="page-header">
+        <h1>The Alert for {{ alert.item.name }} </h1>
+    </div>
+    <p> The price for the alert is {{ alert.price_limit }}</p>
+    <p> The item was last checked on {{ alert.last_checked.strftime('%m-%d-%Y at %H:%M') }}</p>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a class="btn btn-default" href = '{{ url_for('alerts.check_alert_price', alert_id = alert._id)}}'> Reload Price</a>
+            <a class="btn btn-success" href = '{{ alert.item.url}}'> Visit item</a>
+            <a class ="btn btn-default" href="{{ url_for('alerts.edit_alert',alert_id = alert._id)}}">Edit Alert </a>
+            {% if alert.active %}
+                <a class="btn btn-danger" href = '{{ url_for('alerts.deactivate_alert', alert_id = alert._id) }}'> Deactivate Alerts</a>
+            {% else %}
+                <a class="btn btn-success" href = '{{ url_for('alerts.activate_alert', alert_id = alert._id) }}'> Activate Alerts</a>
+                <a class="btn btn-danger" href = '{{ url_for('alerts.delete_alert', alert_id = alert._id) }}'> Delete Alerts</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
